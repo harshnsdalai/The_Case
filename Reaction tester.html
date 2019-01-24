@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Reaction testor!</title>
+    <style>
+        body{
+        font-size: 16px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        
+        }
+        
+        h1{
+            font-size: 3em;
+        }
+        
+        h2{
+            font-size: 2.5em;
+            padding-bottom: 0px;
+            
+        }
+        
+        h3{
+            font-size: 1em;
+            line-height: 1.618em;
+            
+        }
+        
+        p{
+            font-size: 0.8em;
+            line-height: 1.618em;
+        }
+        
+        @media all and (min-width: 960px) {
+            body{
+                font-size: 18px;
+            }
+        }
+        
+        @media all and (max-width: 959px) and (min-width: 600px) {
+            body{
+                font-size: 16px;
+            }
+        }
+        
+        @media all and (max-width: 599px) and (min-width: 20px) {
+            body{
+                font-size: 13px;
+            }
+        
+        }
+        #shape{
+            width: 70px;
+            height: 70px;
+            background: red;
+            display: none;
+            position: relative;
+        }
+        h3{
+            float: right;
+            overflow: auto;
+            padding: 2px;
+            margin: 5px;
+            
+        }
+        button{
+            
+            width: auto;
+            margin: 10px;
+            
+        }
+        
+    
+    </style>
+  </head>
+  <body>
+      
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Reaction Tester</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>   
+      <div class="modal-body">
+          Welcome to reaction tester.Test you reactions by clicking at the circles and square.Hope you enjoy!
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+        
+    <div class="container-fluid">
+        
+        <h3 style="color: darkseagreen"><span id="score"></span></h3><h3 >Your Time:<span id="time"></span></h3>
+        <button type="button" class="btn btn-success start-btn">Start</button>
+        <div id="shape"></div>
+    </div>  
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script>
+        $(window).on('load',function(){
+        $('#exampleModalCenter').modal('show');
+    });
+        var start=new Date().getTime();
+        var highest=999999  ;
+        
+        
+        
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+            }
+        
+        function score(time){
+            if (highest>time){
+                highest=time;
+        }return highest;
+           
+        }
+        function designer(){
+            $("#shape").css("background",getRandomColor)
+            $("#shape").css("top",Math.random()*70+"vh")
+            $("#shape").css("left",Math.random()*70+"vw")
+            $("#shape").css("width",(Math.random()*12)+3+"em")
+            $("#shape").css("height",(Math.random()*12)+3+"em")
+            
+            if (Math.random()>0.5){
+                $("#shape").css("border-radius","50%")
+            }else{
+                $("#shape").css("border-radius","0")
+            }
+        }
+        
+        
+        function shaper(){
+            designer();
+            $("#shape").show();
+            start=new Date().getTime();
+        }
+        
+        $(".start-btn").click(function(){
+            shaper();
+
+
+        })
+
+        
+        $("#shape").click(function(){
+            var end=new Date().getTime();
+            $("#shape").hide();
+            var time=(end-start)/1000
+            
+            $("#time").html(time+"sec")
+            $("#score").html("Your highest is "+score(time)+" sec")
+            setTimeout(shaper,Math.random()*2000);
+
+        });
+        
+    </script>
+  </body>
+</html>

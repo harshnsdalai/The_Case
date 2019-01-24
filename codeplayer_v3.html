@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS and Javascript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <title>Hello, world!</title>
+    <style>
+        body{
+        font-size: 16px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        }
+        
+        h1{
+            font-size: 3em;
+        }
+        
+        h2{
+            font-size: 2.5em;
+            padding-bottom: 0px;
+            
+        }
+        
+        h3{
+            font-size: 1em;
+            line-height: 1.618em;
+            
+        }
+        
+        p{
+            font-size: 0.8em;
+            line-height: 1.618em;
+        }
+        
+        @media all and (min-width: 960px) {
+            body{
+                font-size: 18px;
+            }
+        }
+        
+        @media all and (max-width: 959px) and (min-width: 600px) {
+            body{
+                font-size: 16px;
+            }
+        }
+        
+        @media all and (max-width: 599px) and (min-width: 20px) {
+            body{
+                font-size: 13px;
+            }
+        
+        }
+
+        ::selection{
+            background: none;
+            
+        } 
+
+        .header{
+            width: 100%;
+            background: #E9ECEF;
+        }
+
+        .bt-ctn{
+            text-align: center;
+
+        }
+
+        .tog{
+            float: left;
+            border: solid grey 1px;
+            padding: 5px 10px;
+            margin-top: 10px;
+            border-right: none
+        }
+
+        #html{
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px
+        }
+
+        #out{
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-right: solid grey 1px
+        }
+
+        .greybg{
+            background: rgb(180, 178, 178);
+        }
+
+        .active{
+            background:rgb(212, 243, 255);
+        }
+
+        .tar{
+            padding: 0;
+            margin: 0;
+            border-top: none;
+            border-left: none;
+            resize: none;
+        }
+
+        textarea{
+            float: left;
+        }
+
+        .hidden{
+            display: none;
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            z-index: 99;
+            font-size: 9px;
+            border: none;                                                                    
+            outline: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            opacity: 0.5;
+            }
+
+        #myBtn:hover {
+            background-color: #555;
+        }
+        
+    </style>
+  </head>
+  <body>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Back</button>
+        <div class="jumbotron jumbotron-fluid" style="height: 100vh;margin: 0;padding: 0;">
+                <div class="container">
+                  <h1  style="text-align: center;padding: 15%">hello! <br> I'm Codeplayer<br><a href="#click" style="text-decoration:none;">Click me to go</a></h1>
+                  
+                </div>
+              </div>
+    <div class="container-fluid header" id="click">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>code_Player</h2>
+
+            </div>
+            <div class="col-md-4 bt-ctn">
+                <div class="tog active" id="html">HTML</div>                 
+                <div class="tog " id="css">Css</div>
+                <div class="tog " id="js">JavaScript</div>
+                <div class="tog " id="out">Output</div>
+                
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <textarea class="tar" id="htmlpanel"><div id="demo" class="demo2" onclick="myFunction()">Click me.</div></textarea>
+            <textarea class="tar hidden" id="csspanel">.demo2{color:blue;}</textarea>
+            <textarea class="tar hidden" id="jspanel">function myFunction() {
+                document.getElementById("demo").classList.toggle ("demo2");
+            }</textarea>
+            <iframe class="tar hidden" id="outpanel" ></iframe>
+        </div>
+    </div>
+   
+    <script>
+// When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("myBtn").style.display = "block";
+                } else {
+                    document.getElementById("myBtn").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0; // For Safari
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            }
+        $(function(){
+            function updateOutput() {
+                $("iframe").contents().find("body").html($("#htmlpanel").val());
+
+                $("iframe").contents().find("head").html("<style>"+$("#csspanel").val()+"</style>");              // update frame
+                    
+                document.getElementById("outpanel").contentWindow.eval($("#jspanel").val());        
+                                                                   
+                }
+            
+            $(".tog").hover(function(){
+
+                $(this).addClass("greybg")                                     //hovering effect to button
+            },function(){
+
+                $(this).removeClass("greybg")
+
+            });
+
+            $(".tog").click(function(){
+                var panel=$(this).attr("id")        
+
+                $(".tog").removeClass("active")                                 //Click function
+                $(".tar").hide()
+                $(this).addClass("active")
+                $("#"+panel+"panel").show()
+                if(panel=="out"){
+                    updateOutput();
+                }
+
+            })
+            $(".tar").height($(window).height()-$(".header").height());                 //width and height of container
+
+            $(".tar").width(($(window).width()));
+            
+
+            $(document).ready(function(){
+                // Add smooth scrolling to all links
+                $("a").on('click', function(event) {
+
+                    // Make sure this.hash has a value before overriding default behavior
+                    if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 500, function(){
+                
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                    } // End if
+                });
+            });
+
+            updateOutput(); 
+        });   
+    
+    </script>
+</body>
+</html>
+<!--$(document).resize(function(){
+            var panel=4-$(".hidden").length
+            var cw= $(window).width();                          //resize responsive
+             $(".tar").width((cw/panel)-10);
+        });
+     -->
